@@ -1,4 +1,6 @@
 require(metaSEM)
+require(dplyr)
+require(magrittr)
 
 data <- read.csv("meta_dataset0503.csv")
 data
@@ -6,7 +8,7 @@ data
 dataset <- data[5:14]
 dataset
 
-nvar <- 5 #因素的數量
+nvar <- 5 
 varnames <- c("OUT","BEH","CL","SE","PER")
 labels <- list(varnames,varnames)
 
@@ -112,7 +114,3 @@ summary(stage1_low.fit)
 stage2_low.fit <- tssem2(stage1_low.fit, Amatrix=A, Smatrix=S)
 stage2_high.fit <- tssem2(stage1_high.fit, Amatrix=A, Smatrix=S)
 summary(stage2_low.fit)
-
-
-
-
